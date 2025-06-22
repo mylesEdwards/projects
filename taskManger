@@ -1,0 +1,100 @@
+class  Task{
+private  id: number ;
+private  description : string;
+private  completed: boolean;
+
+
+public constructor(id:number, description:string){
+this.id = id;
+this.description = description;
+this.completed = false;
+}
+
+public  markComplete() : void {
+this.completed = true;
+
+}
+
+public getId(): number{
+
+    return this.id;
+}
+
+public getDetails(): string{
+ return  `${this.id}: ${this.description} [${this.completed ? "Done" : "Pending"}]`;
+
+    
+}
+
+public isCompletetd(): boolean{
+
+    return this.completed;
+}
+
+}
+
+class TaskManager{
+
+private taskSheet: Task[] = [];
+private nextId: number = 1;
+
+
+public addTasks(description:string): void{
+   const task = new Task (this.nextId++, description)
+this.taskSheet.push(task);
+
+
+}
+
+public listTasks(filter?: string): void {
+for (let i = 0; i < this.taskSheet.length; i++){
+console.log(this.taskSheet[i].getDetails());
+
+}
+
+}
+
+public deleteTask(id:number): void {
+                 //array....index...condition
+this.taskSheet = this.taskSheet.filter(taskSheet => taskSheet.getId() !== id); 
+
+
+}
+
+public markTask(id:number): void {
+    //removed task
+const task = this.taskSheet.find(task => task.getId()=== id);
+
+if (task){
+    task.markComplete();
+   // console.log('Task ${id} ');
+}
+else {
+
+    console.log("task not completed");
+}
+}
+}
+
+function main() :void {
+
+    const  todo = new TaskManager();
+    console.log("add tasks");
+
+    todo.addTasks(" task 1");
+    todo.addTasks(" task 2");
+    todo.addTasks(" task 3");
+    todo.addTasks(" task 4");
+
+    console.log(todo.listTasks());
+
+    todo.markTask(1);
+    todo.deleteTask(4);
+    
+    console.log(todo.listTasks());
+
+
+
+}
+
+main();
