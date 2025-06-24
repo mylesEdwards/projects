@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Extracted Resume Data</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f6f8;
+            padding: 40px 20px;
+        }
+
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+            max-width: 800px;
+            margin: auto;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .field {
+            margin-bottom: 25px;
+        }
+
+        .field h3 {
+            color: #2c3e50;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+        }
+
+        .field p, .field ul {
+            margin-left: 15px;
+            font-size: 16px;
+            color: #555;
+        }
+
+        .field ul {
+            list-style: disc;
+            padding-left: 20px;
+        }
+
+        .buttons {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        button {
+            padding: 12px 24px;
+            font-size: 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .submit-btn:hover {
+            background-color: #45a049;
+        }
+
+        .logout-btn {
+            background-color: #e74c3c;
+            color: white;
+        }
+
+        .logout-btn:hover {
+            background-color: #c0392b;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Extracted Resume Data</h2>
+
+        {% for key, value in data.items() %}
+            <div class="field">
+                <h3>{{ key }}</h3>
+                {% if value is string %}
+                    <p>{{ value }}</p>
+                {% elif value is iterable %}
+                    <ul>
+                        {% for item in value %}
+                            <li>{{ item }}</li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p>{{ value }}</p>
+                {% endif %}
+            </div>
+        {% endfor %}
+
+        <div style="margin-top: 30px;">
+            <h3>🧠 AI Feedback to Improve Your Resume</h3>
+            <pre style="background: #f4f4f4; padding: 15px; border-radius: 8px;">{{ feedback }}</pre>
+        </div>
+        
+
+        <div class="buttons">
+            <form action="/upload-form" method="get">
+                <button type="submit" class="submit-btn">Submit Another Resume</button>
+            </form>
+
+            <form action="/logout" method="get">
+                <button type="submit" class="logout-btn">Logout</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resume Data Analysis</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <h2>Resume Analysis Report</h2>
+
+    <p><strong>Total Resumes Parsed:</strong> {{ report.Total_Resumes }}</p>
+
+    <h3>Top Skills:</h3>
+    <ul>
+        {% for skill, count in report.Top_Skills %}
+        <li>{{ skill }}: {{ count }}</li>
+        {% endfor %}
+    </ul>
+
+    <h3>Education Levels:</h3>
+    <ul>
+        {% for edu, count in report.Education_Levels.items() %}
+        <li>{{ edu }}: {{ count }}</li>
+        {% endfor %}
+    </ul>
+
+    <form method="get" action="/upload-form" style="margin-top: 20px;">
+        <button type="submit">⬅️ Back to Upload</button>
+    </form>
+</body>
+</html>

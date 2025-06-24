@@ -1,0 +1,89 @@
+<!-- templates/upload.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload Resume</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f6f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .upload-container {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            text-align: center;
+        }
+
+        .upload-container h2 {
+            margin-bottom: 25px;
+            color: #333;
+        }
+
+        .upload-container input[type="file"] {
+            margin-top: 10px;
+            margin-bottom: 20px;
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+        }
+
+        .upload-container button {
+            width: 100%;
+            padding: 12px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .upload-container button:hover {
+            background-color: #45a049;
+        }
+
+        .logout-btn {
+            background-color: #e74c3c;
+            margin-top: 15px;
+        }
+
+        .logout-btn:hover {
+            background-color: #c0392b;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="upload-container">
+        <h2>Upload Your Resume</h2>
+        <form method="POST" action="/upload" enctype="multipart/form-data">
+            <input type="file" name="resume" required>
+            <button type="submit">Upload</button>
+        </form>
+
+        <form method="GET" action="/logout">
+            <button type="submit" class="logout-btn">Logout</button>
+        </form>
+       
+        <form method="GET" action="/analyze">
+            <button type="submit" class="analyze-btn">Analyze All Resumes</button>
+        </form>
+        
+    </div>
+</body>
+</html>
+
