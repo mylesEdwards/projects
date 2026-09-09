@@ -32,3 +32,13 @@ Website: [https://gitops-mk.opensource.mieweb.org/](https://gitops-mk.opensource
 
 5. If you click on the predicted actor that the website returns, it will reveal the age prediction of an actor along with the top 3 predicted actors that the API thought that this person could be.
   <img width="935" height="843" alt="Screenshot 2026-04-27 at 6 44 21 PM" src="https://github.com/user-attachments/assets/0552ce20-8721-4ff3-b363-cc1edc226ed5" />
+
+# My Contributions
+* Developed Multi-Format Media Routing Engine: Built a robust file-extension routing layer (the "Traffic Cop") inside the Flask backend to dynamically differentiate between image (.jpg, .png, .webp) and video (.mp4, .mov, .avi, .mkv) formats.  
+
+* Implemented Automated Video Processing Pipeline: Engineered the master pipeline for video analysis, integrating frame extraction and multi-threaded face detection directories to process large media files efficiently.  
+
+* Optimized Cross-Platform Workspace Architecture: Implemented dynamic directory creation and automated temporary file cleanup mechanisms to ensure seamless local pathing and prevent storage buildup during batch media analyses.  
+
+* Integrated End-to-End AI Analysis Workflow: Connected the video and image preprocessing layers with the TMDB algorithm suite (step1_tmdb, step2_tmdb, step3_tmdb, and media_ranking_alg) to automate age estimation, actor identification, release range calculation, and media ranking.
+
