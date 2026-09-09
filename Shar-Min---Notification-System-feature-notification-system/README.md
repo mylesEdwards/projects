@@ -135,7 +135,7 @@ For detailed information on how the system works, check out the full documentati
 *   **[Frontend Guide](docs/frontend_guide.md)**: Component structure and routing.
 *   **[API Reference](docs/api_reference.md)**: List of all backend endpoints.
 
-*   My Contributions
+  #My Contributions
 As the backend and database engineer for this project, I engineered the core data processing, logic layers, and automated health monitoring components. Specifically, I contributed to and implemented the following files:
 server/NotificationSystem.py: Developed the complete automated notification pipeline and epidemiological analytics engine. This script interfaces with the database, executes advanced SQL queries with de-duplication subqueries (MAX(id)), evaluates patient vitals against clinical thresholds (HbA1c and BMI), and generates targeted alerts for individual patients and public health officials.
 server/database_schema.py (or main server database initialization): Designed and structured the relational SQLite database architecture, establishing the schema for the users and records tables to handle longitudinal patient tracking.
